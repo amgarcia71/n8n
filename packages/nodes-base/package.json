@@ -594,6 +594,7 @@
       "dist/nodes/RenameKeys/RenameKeys.node.js",
       "dist/nodes/RespondToWebhook/RespondToWebhook.node.js",
       "dist/nodes/Rocketchat/Rocketchat.node.js",
+      "dist/nodes/RpaBot/RpaBot.node.js",
       "dist/nodes/RssFeedRead/RssFeedRead.node.js",
       "dist/nodes/Rundeck/Rundeck.node.js",
       "dist/nodes/S3/S3.node.js",
