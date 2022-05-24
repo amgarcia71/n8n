@@ -34,58 +34,26 @@ export class RpaBot implements INodeType {
             // can change on the node.
 
 						{
-							displayName: 'Resource',
-							name: 'resource',
-							type: 'options',
-							options: [
-									{
-											name: 'Contact',
-											value: 'contact',
-									},
-							],
-							default: 'contact',
-							required: true,
-							description: 'Resource to consume',
-					},
-					{
-							displayName: 'Operation',
-							name: 'operation',
-							type: 'options',
-							displayOptions: {
-									show: {
-											resource: [
-													'contact',
-											],
-									},
-							},
-							options: [
-									{
-											name: 'Create',
-											value: 'create',
-											description: 'Create a contact',
-									},
-							],
-							default: 'create',
-							description: 'The operation to perform.',
-					},
-					{
-							displayName: 'Email',
-							name: 'email',
+							displayName: 'RPA Workflow JSON',
+							name: 'rpaJson',
 							type: 'string',
-							required: true,
-							displayOptions: {
-									show: {
-											operation: [
-													'create',
-											],
-											resource: [
-													'contact',
-											],
-									},
+							typeOptions: {
+								alwaysOpenEditWindow: true,
+								editor: 'json',
+								rows: 10,
 							},
-							default:'',
-							description:'Primary email for the contact',
-					},
+							displayOptions: {
+								show: {
+									source: [
+										'parameter',
+									],
+								},
+							},
+							default: '\n\n\n',
+							required: true,
+							description: 'The RPA workflow JSON code to execute',
+						},
+
 
         ],
     };
