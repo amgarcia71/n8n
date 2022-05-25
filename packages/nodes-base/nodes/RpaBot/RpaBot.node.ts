@@ -166,17 +166,10 @@ export class RpaBot implements INodeType {
 
 			var rpa =  new RPA_Bot(RPAJSON);
 
-
-			await rpa.exec( (result: any) => {
-
-				  //console.log(result);
-					//return [[{data:result }]];
-					return [this.helpers.returnJsonArray({rpa_output:result})];
-
-			} );
+			let res = await rpa.exec();
 
 			// Map data to n8n data
-			//return [this.helpers.returnJsonArray({test:"hola"})];
+			return [this.helpers.returnJsonArray(res)];
 		}
 
 
@@ -231,19 +224,14 @@ class  RPA_Bot{
 
 
     // Recieve a Msg from Router
-    async exec(callback: { (result: any): any[][]; (arg0: { status: number; output: any; error?: any; }): any; }){
-
-
-
+    async exec(){
 
             this.browser =  await puppeteer.launch({ headless: this.flowData["headless"] });
             var currentStep =  this.flowData.steps[this.flowData.init];
 
-
-
             await this.execStep(currentStep, "init");
             this.browser.close();
-            if (callback) callback( {status: 200, output : this.context  });
+            return {status: 200, output : this.context  };
 
 
 
@@ -727,4 +715,8 @@ function rdn(min: number, max: number) {
     return Math.floor(Math.random() * (max - min)) + min
   }
 
+
+function result(result: any, any: any): any {
+	throw new Error('Function not implemented.');
+}
 
