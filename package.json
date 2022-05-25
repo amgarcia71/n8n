@@ -25,5 +25,13 @@
     "rimraf": "^3.0.2",
     "run-script-os": "^1.0.7"
   },
-  "postcss": {}
+  "postcss": {},
+  "dependencies": {
+    "captcha-cv-ocr": "^1.1.2",
+    "html-table-to-json": "^1.0.0",
+    "puppeteer": "^14.1.1",
+    "puppeteer-extra": "^3.2.3",
+    "puppeteer-extra-plugin-recaptcha": "^3.5.0",
+    "user-agents": "^1.0.1027"
+  }
 }
