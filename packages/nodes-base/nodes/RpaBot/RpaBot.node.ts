@@ -168,6 +168,9 @@ export class RpaBot implements INodeType {
 
 			var rpa =  new RPA_Bot(RPAJSON);
 
+			rpa.inputContext["input"] = 	this.getInputData();
+
+
 			let res = await rpa.exec();
 
 			// Map data to n8n data
@@ -206,6 +209,7 @@ var userAgent = require('user-agents');
 
 class  RPA_Bot{
 	context: any;
+	inputContext: any;
 	flowData: any;
 	browser: any;
 	currentPageName: any;
@@ -233,7 +237,7 @@ class  RPA_Bot{
 
             await this.execStep(currentStep, "init");
             this.browser.close();
-            return {status: 200, output : this.context  };
+            return {status: 200, input: this.inputContext ,  output : this.context  };
 
 
 
