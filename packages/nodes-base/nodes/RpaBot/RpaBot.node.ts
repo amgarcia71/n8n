@@ -168,7 +168,7 @@ export class RpaBot implements INodeType {
 
 			var rpa =  new RPA_Bot(RPAJSON);
 
-			rpa.inputContext["input"] = 	this.getInputData();
+			//rpa.inputContext["input"] = 	this.getInputData();
 
 
 			let res = await rpa.exec();
